@@ -14,7 +14,7 @@ socket.on("join", function(message) {
     console.log(message);
 });
 
-//every 3 seconds
+
 /*
 setInterval(function() {
     socket.send("hello");
@@ -22,5 +22,13 @@ setInterval(function() {
 }, 3000);
 */
 
+//send a message on button click
+document.getElementById("send").onclick = function() {
+    socket.send("hello");
+}
+
+document.getElementById("emit").onclick = function() {
+    socket.emit('json', {data: 'button pressed'});
+}
 
 
