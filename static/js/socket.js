@@ -12,7 +12,7 @@ socket.on('message', function(message) {
 
 socket.on("join", function(message) {
     console.log(message);
-}
+});
 
 //every 3 seconds
 /*
