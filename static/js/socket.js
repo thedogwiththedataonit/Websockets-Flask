@@ -31,4 +31,9 @@ document.getElementById("emit").onclick = function() {
     socket.emit('json', {data: 'button pressed'});
 }
 
+document.getElementById('joinroom').onclick = function() {
+    socket.emit('join', {username: "Thomas", 
+                        room: 'test'});
+}
+
 

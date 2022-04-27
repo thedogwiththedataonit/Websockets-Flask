@@ -4,7 +4,7 @@ from pymongo import MongoClient
 import certifi
 import re
 from flask_cors import CORS, cross_origin
-from flask_socketio import SocketIO, send, emit, join_room, leave_room
+from flask_socketio import SocketIO, send, emit, join_room, leave_room, close_room, rooms, disconnect
 
 application = Flask(__name__)
 application.config['SECRET_KEY'] = 'secret!'
@@ -45,6 +45,8 @@ def on_join(data):
     username = data['username']
     room = data['room']
     join_room(room)
+    currentrooms = rooms()
+    print(currentrooms)
     send(username + ' has entered the room.', to=room)
 
 @socketio.on('leave')
